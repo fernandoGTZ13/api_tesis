@@ -213,4 +213,3 @@ def run():
 
 threading.Thread(target=run).start()
 
-cloudflared tunnel --url http://localhost:8000
