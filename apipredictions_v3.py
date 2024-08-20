@@ -1,9 +1,4 @@
 
-!pip install tensorflow
-!pip install python-multipart
-!pip install fastapi
-!pip install uvicorn
-
 from google.colab import drive
 drive.mount('/content/drive')
 from sklearn.metrics import confusion_matrix, roc_curve, auc
@@ -170,8 +165,8 @@ def predict_image(img_path, threshold=0.7):
 
     return predicted_label
 
-!wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
-!sudo dpkg -i cloudflared-linux-amd64.deb
+wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+sudo dpkg -i cloudflared-linux-amd64.deb
 
 import base64
 from fastapi import FastAPI, UploadFile, File, HTTPException
@@ -221,29 +216,4 @@ def run():
 
 threading.Thread(target=run).start()
 
-!cloudflared tunnel --url http://localhost:8000
-
-#!npm install -g localtunnel
-#!lt --port 8000
-
-"""import requests
-
-try:
-    response = requests.post("http://127.0.0.1:8000/api/v1/suma", json={"a": 5, "b": 10})
-    print(response.json())
-except Exception as e:
-    print("Error al intentar conectar con la API:", e)
-
-import requests
-
-try:
-    response = requests.get("http://127.0.0.1:8000/")
-    print(response.json())
-except Exception as e:
-    print("Error al intentar conectar con la API:", e)
-
-import requests
-
-response = requests.post("http://127.0.0.1:8000/upload/", json={"url": "https://www.w3schools.com/w3images/lights.jpg"})
-print(response.json())
-"""
+cloudflared tunnel --url http://localhost:8000
