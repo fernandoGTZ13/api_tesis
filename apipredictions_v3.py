@@ -165,9 +165,6 @@ def predict_image(img_path, threshold=0.7):
 
     return predicted_label
 
-wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
-sudo dpkg -i cloudflared-linux-amd64.deb
-
 import base64
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from PIL import Image
